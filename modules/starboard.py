@@ -32,13 +32,15 @@ class Module(ModuleInterface):
       return
 
   async def on_raw_reaction_add(self, react_event, client):
+    react_emoji_id = str(react_event.emoji)
+    channel_id = react_event.channel_id #ids are separated into individual pieces to make the add_to_starboard() function more modular
+    message_id = react_event.message_id
+
     # behavior checks
     if (channel_id) == self.config.get('starboard', 'channel_id'):
       return
 
-    react_emoji_id = str(react_event.emoji)
-    channel_id = react_event.channel_id #ids are separated into individual pieces to make the add_to_starboard() function more modular
-    message_id = react_event.message_id
+
     channel_obj = client.get_channel(channel_id)
     message_obj = await channel_obj.fetch_message(message_id)
     react_obj = await self.get_message_react_by_id(message_obj, react_emoji_id)
