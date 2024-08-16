@@ -1,0 +1,6 @@
+*.db*
+*.ini
+*.pyc
+__pycache__/
+
+old/
