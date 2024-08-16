@@ -19,6 +19,7 @@ class ModularDiscordBot(discord.Client):
     except ModuleNotFoundError as e:
       print("An error occurred while importing guilds!")
       print(e)
+      print(f"Module Not Found: {key}")
       quit()
     
     #self.guild_cooldowns = []
