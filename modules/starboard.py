@@ -33,7 +33,7 @@ class Module(ModuleInterface):
 
   async def on_raw_reaction_add(self, react_event, client):
     # behavior checks
-    if (channel_id) == self.config.get('starboard', 'channel_id')):
+    if (channel_id) == self.config.get('starboard', 'channel_id'):
       return
 
     react_emoji_id = str(react_event.emoji)
