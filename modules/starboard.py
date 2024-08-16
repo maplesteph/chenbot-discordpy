@@ -33,8 +33,8 @@ class Module(ModuleInterface):
 
   async def on_raw_reaction_add(self, react_event, client):
     # behavior checks
-    #if (str(channel_obj.id) == self.config.get('starboard', 'channel_id')):
-    #  return
+    if (str(channel_obj.id) == self.config.get('starboard', 'channel_id')):
+      return
 
     react_emoji_id = str(react_event.emoji)
     channel_id = react_event.channel_id #ids are separated into individual pieces to make the add_to_starboard() function more modular

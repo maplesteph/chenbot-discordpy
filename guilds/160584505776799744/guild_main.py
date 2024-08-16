@@ -20,6 +20,8 @@ class Guild(GuildInterface):
         await self.on_raw_reaction_add(message, message_event, client)
 
   async def on_message(self, message, message_event, client):
+    if 'starboard' in self.modules.keys():
+      await self.modules['starboard'].handle(message, message_event, client)
     return
 
   async def on_raw_message_delete(self, message, message_event, client):
@@ -29,4 +31,6 @@ class Guild(GuildInterface):
     return
 
   async def on_raw_reaction_add(self, message, message_event, client):
+    if 'starboard' in self.modules.keys():
+      await self.modules['starboard'].handle(message, message_event, client)
     return
