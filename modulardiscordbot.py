@@ -14,7 +14,7 @@ class ModularDiscordBot(discord.Client):
     try:
       for key in self.config['guilds']:
         guild_id = self.config['guilds'][key]
-        guild_class = getattr(import_module(f"guilds.{self.config['guilds'][key]}.guild_main"), 'Guild') 
+        guild_class = getattr(import_module(f'guilds.{self.config["guilds"][key]}.guild_main'), 'Guild') 
         self.guild_list[self.config['guilds'][key]] = guild_class(alias=key, id=guild_id)
     except ModuleNotFoundError as e:
       print("An error occurred while importing guilds!")

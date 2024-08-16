@@ -118,7 +118,7 @@ class Module(ModuleInterface):
     
     #footer
     try:
-      embed.set_footer(text=f'{str(react.count)} ⭐ ({message.id}) • {message.created_at.strftime('%Y-%m-%d at %H:%M')} UTC')
+      embed.set_footer(text=f'{str(react.count)} ⭐ ({message.id}) • {message.created_at.strftime("%Y-%m-%d at %H:%M")} UTC')
     except AttributeError:
       # this only comes up when the forced message has no reacts
       embed.set_footer(text=f'**Forced** ⭐ ({message.id}) • {message.created_at.strftime('%Y-%m-%d at %H:%M')} UTC')
